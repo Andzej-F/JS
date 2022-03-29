@@ -41,64 +41,21 @@ For example:
 //   console.log(polishLetters[i]);
 // }
 
-const transform = function (name) {
-  for (let i = 0; i < name.length; i++) {
-    if (name[i] === "ą") name[i] = "a";
-    if (name[i] === "ć") name[i] = "c";
-    if (name[i] === "ę") name[i] = "e";
-    if (name[i] === "ł") name[i] = "l";
-    if (name[i] === "ń") name[i] = "n";
-    if (name[i] === "ó") name[i] = "o";
-    if (name[i] === "ś") name[i] = "s";
-    if (name[i] === "ź" || name[i] === "ż") name[i] = "z";
+const transform = function (string) {
+  let newString = "";
+  for (let i = 0; i < string.length; i++) {
+    if (string[i] === "ą") newString += "a";
+    else if (string[i] === "ć") newString += "c";
+    else if (string[i] === "ę") newString += "e";
+    else if (string[i] === "ł") newString += "l";
+    else if (string[i] === "ń") newString += "n";
+    else if (string[i] === "ó") newString += "o";
+    else if (string[i] === "ś") newString += "s";
+    else if (string[i] === "ź" || string[i] === "ż") newString += "z";
+    else newString += string[i];
   }
 
-  return name;
+  return newString;
 };
 
 console.log(transform("Jędrzej Błądziński"));
-
-const transformSwicth = function (name) {
-  for (let i = 0; i < name.length; i++) {
-    switch (name[i]) {
-      case "ą":
-        name[i] = "a";
-        break;
-
-      case "ć":
-        name[i] = "c";
-        break;
-
-      case "ę":
-        name[i] = "e";
-        break;
-
-      case "ł":
-        name[i] = "l";
-        break;
-
-      case "ó":
-        name[i] = "o";
-        break;
-
-      case "ś":
-        name[i] = "s";
-        break;
-
-      case "ź":
-      case "ż":
-        name[i] = "z";
-        break;
-    }
-  }
-
-  return name;
-};
-
-// console.log(transform("Jędrzej Błądziński"));
-// console.log(transformSwicth("Jędrzej Błądziński"));
-
-// const firstName = "James";
-// console.log(firstName[]);
-
-// transform("name");
