@@ -1,9 +1,7 @@
 "use strict";
-// Constructor, operator "new"
 
-// Constructor function
 // function User(name) {
-//   // this = {};
+//   // this={};
 
 //   this.name = name;
 //   this.isAdmin = false;
@@ -12,51 +10,77 @@
 // }
 
 // const user = new User("Jack");
+// console.log(user.name);
+// console.log(user.isAdmin);
 
-// console.log(user.name); // Jack
-// console.log(user.isAdmin); // false
-
-// console.log(user);
-
+// create a function and immediately call it with new
 // const user = new (function () {
 //   this.name = "John";
 //   this.isAdmin = false;
 // })();
 
-// function User() {
-//   console.log(new.target);
+// console.log(user.name);
+// console.log(user.isAdmin);
+
+// function User(name) {
+//   this.name = name;
+
+//   this.sayHi = function () {
+//     console.log("My name is: " + this.name);
+//   };
 // }
 
-// User(); // undefined
+// const john = new User("John");
+// john.sayHi();
 
-// new User(); /* ƒ User() {
-//   console.log(new.target);
-// } */
+// const obj = {};
 
-// function BigUser() {
-//   this.name = "john";
-//   return { name: "Godzilla" }; // <-- returns this object
+// function A() {
+//   return obj;
 // }
 
-// console.log(new BigUser().name);
-
-// function SmallUser() {
-//   this.name = "John";
-//   return; // <-- returns this
+// function B() {
+//   return obj;
 // }
-// console.log(new SmallUser().name);
 
-// const james = new SmallUser();
-// console.log(james.name); // John
+// const a = new A();
+// const b = new B();
+// console.log(a);
+// console.log(b);
+// console.log(a === b);
 
-function User(name) {
-  this.name = name;
+// function Calculator() {
+//   this.read = function () {
+//     this.val1 = Number(prompt("Enter a first value"));
+//     this.val2 = Number(prompt("Enter a second value"));
+//   };
 
-  this.sayHi = function () {
-    console.log("My name is " + this.name);
+//   this.sum = function () {
+//     return this.val1 + this.val2;
+//   };
+
+//   this.mul = function () {
+//     return this.val1 * this.val2;
+//   };
+// }
+
+// const calculator = new Calculator();
+// calculator.read();
+
+// console.log("Sum=" + calculator.sum());
+// console.log("Mul=" + calculator.mul());
+
+function Accumulator(startingValue) {
+  this.value = startingValue;
+
+  this.read = function () {
+    this.value += Number(prompt("Type a new number"));
   };
 }
 
-const john = new User("John");
+const accumulator = new Accumulator(1);
 
-john.sayHi(); // My name is: John
+accumulator.read();
+accumulator.read();
+
+console.log(accumulator.value);
