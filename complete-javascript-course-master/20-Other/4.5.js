@@ -70,17 +70,17 @@
 // console.log("Sum=" + calculator.sum());
 // console.log("Mul=" + calculator.mul());
 
-function Accumulator(startingValue) {
-  this.value = startingValue;
+// function Accumulator(startingValue) {
+//   this.value = startingValue;
 
-  this.read = function () {
-    this.value += Number(prompt("Type a new number"));
-  };
-}
+//   this.read = function () {
+//     this.value += Number(prompt("Type a new number"));
+//   };
+// }
 
-const accumulator = new Accumulator(1);
+// const accumulator = new Accumulator(1);
 
-accumulator.read();
-accumulator.read();
+// accumulator.read();
+// accumulator.read();
 
-console.log(accumulator.value);
+// console.log(accumulator.value);
